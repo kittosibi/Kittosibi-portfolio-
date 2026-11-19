@@ -1,17 +1,14 @@
-# KittoSibi Studio Portfolio
+# KittoSibi Studio
 
-A modern, responsive single-page portfolio for KittoSibi Studio.
+Multi-page static portfolio for KittoSibi Studio.
 
-## Run locally
+Pages: `index.html`, `about.html`, `little-mischiefs.html`, `artino.html`, and `contact.html`.
 
-Open `index.html` directly in a browser, or serve the folder:
+Image paths used by the pages:
+- `kittosibi-logo.png`
+- `satya.png`
+- `shinaa-1.png`
+- `shinaa-2.png`
+- `shinaa-3.png`
 
-```bash
-python3 -m http.server 8080
-```
-
-Then visit `http://localhost:8080`.
-
-## Deploy
-
-This is a static site and can be deployed directly to Netlify. Drag the folder into Netlify Drop or connect this repository and deploy the root directory.
+Place these image files in the repository root alongside the HTML files before deploying.

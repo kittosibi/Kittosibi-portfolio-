@@ -1,15 +1,1 @@
-const menuButton=document.querySelector('.menu-button');
-const nav=document.querySelector('.nav');
-menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',open)});
-document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
-const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-const sections=[...document.querySelectorAll('main section[id]')];
-const navLinks=[...document.querySelectorAll('.nav a')];
-const sectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`))}})},{rootMargin:'-35% 0px -55%'});
-sections.forEach(section=>sectionObserver.observe(section));
-const modal=document.querySelector('#contact-modal');
-document.querySelector('#open-contact').addEventListener('click',()=>modal.showModal());
-document.querySelector('.modal-close').addEventListener('click',()=>modal.close());
-modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
-document.querySelector('#contact-form').addEventListener('submit',e=>{e.preventDefault();const button=e.currentTarget.querySelector('button');button.innerHTML='IDEA SENT <b>✓</b>';setTimeout(()=>{modal.close();button.innerHTML='SEND THE IDEA <b>↗</b>';e.currentTarget.reset()},900)});
+const menuButtons=document.querySelectorAll('.menu');menuButtons.forEach(button=>button.addEventListener('click',()=>button.nextElementSibling.classList.toggle('open')));const form=document.querySelector('#contact-form');if(form)form.addEventListener('submit',event=>{event.preventDefault();document.querySelector('#form-status').textContent='Thanks! Your idea is ready to be sent.';form.reset()});
